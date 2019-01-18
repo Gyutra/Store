@@ -1,0 +1,36 @@
+<h1>Editing...</h1>
+
+<hr>
+
+<%= form_with(model: @product, local: true) do |f| %>
+
+	  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %> prohibited
+        this product from being saved:
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.file_field :image %>
+
+	<%= link_to(image_tag(@product.image.url(:small)), @product.image.url, target: '_blank') if @product.image.exists? %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>

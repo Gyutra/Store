@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
 	belongs_to :category
-	has_many :suppliers
 
 	has_attached_file :image, styles: {big: ["535x300#", :jpeg], small: ["100x100#", :jpeg], original: [:jpeg]}
 

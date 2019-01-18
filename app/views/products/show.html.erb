@@ -1,0 +1,7 @@
+<p>
+	<%= link_to 'Products', category_product_path %> <br>
+	<strong><%= @product.name %></strong><br>
+		<hr>
+			<%= image_tag(@product.image.url(:big)) if @product.image.exists? %>
+			<%= link_to(image_tag(@product.image.url(:small)), @product.image.url, target: '_blank') if @category.image.exists? %>
+</p>

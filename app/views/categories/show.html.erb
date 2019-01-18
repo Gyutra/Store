@@ -1,48 +1,8 @@
 <p>
 	<%= link_to 'Categories', categories_path %> <br>
-	<strong><%= @category.name %></strong><br> 
+	<strong><%= @category.name %></strong><br>
 		<hr>
 			<%= image_tag(@category.image.url(:big)) if @category.image.exists? %>
 			<%= link_to(image_tag(@category.image.url(:small)), @category.image.url, target: '_blank') if @category.image.exists? %>
 </p>
-
-<hr>
-<table>
-  <tr>
-    <th>Products</th>
-    <th></th>
-  </tr>
-
-  <% @category.products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= image_tag(product.image.url(:small)) %></td>
-      <td> <hr> </td>
-      <td><%= link_to 'Show', product_path(product) %></td>
-      <td><%= link_to 'Edit', edit_product_path(product)%></td>
-      <td><%= link_to 'Delete', product_path(product), method: :delete, data: {confirm: 'TO4HO?'} %></td>
-    </tr>
-  <% end %>
-</table>
-<hr>
-
-<h2> Add Product </h2>
-
-<%= form_with(model: [ @category.products.build ], local: true) do |f| %>
-
-
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-
-	<p>
-		<%= f.file_field :image %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-	<% end %>
-
-	
+<%= link_to 'new Product', new_category_product_path(@category.id)  %>

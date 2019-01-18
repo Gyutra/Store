@@ -1,0 +1,19 @@
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th></th>
+  </tr>
+
+  <% @product.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= image_tag(product.image.url(:small)) %></td>
+      <td> <hr> </td>
+      <td><%= link_to 'Show', product_path(product) %></td>
+      <td><%= link_to 'Edit', edit_product_path(product)%></td>
+      <td><%= link_to 'Delete', product_path(product), method: :delete, data: {confirm: 'TO4HO?'} %></td>
+    </tr>
+  <% end %>
+</table>
