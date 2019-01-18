@@ -5,4 +5,4 @@
 			<%= image_tag(@category.image.url(:big)) if @category.image.exists? %>
 			<%= link_to(image_tag(@category.image.url(:small)), @category.image.url, target: '_blank') if @category.image.exists? %>
 </p>
-<%= link_to 'new Product', new_category_product_path(@category.id)  %>
+<%= link_to 'new Product', new_category_product_path(@category)  %>
